@@ -1,25 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import Display from './Display';
 
 function App() {
+  const [counter, setCounter] = useState(0);
+
+  const increase = () => setCounter(counter + 1);
+  const resetNumber = () => setCounter(0);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Display counter={counter}/>
+      <button onClick={resetNumber}>
+        Reset
+      </button>
+      <button onClick={increase}>
+        Add
+      </button>
     </div>
-  );
+  )
 }
 
 export default App;
